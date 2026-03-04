@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: studygroup-backend
+    runtime: docker
+    rootDir: StudyGroupProject_V2/Backend
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: DB_POSTGRES_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_MONGO_URI
+        sync: false
+      - key: GG_OAUTH2_CLIENT_ID
+        sync: false
+      - key: GG_OAUTH2_CLIENT_SECERT
+        sync: false
+      - key: CLOUDFARE_R2_ACCESS_KEY
+        sync: false
+      - key: CLOUDFARE_R2_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFARE_R2_SECERT_KEY
+        sync: false
+      - key: CLOUDFARE_BUCKET_NAME
+        sync: false
+      - key: CLOUDFARE_PUBLIC_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
