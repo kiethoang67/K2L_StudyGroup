@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import {
-    Loader2
-} from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { authAPI, type AdminStats } from '../../api/auth.api';
 import type { User } from '../../types/auth.types';
