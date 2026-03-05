@@ -187,7 +187,10 @@ export default function LoginPage() {
 
                         <button
                             type="button"
-                            onClick={() => window.location.href = 'http://localhost:8081/oauth2/authorization/google'}
+                            onClick={() => {
+                                const baseUrl = import.meta.env.VITE_API_BASE_URL.replace('/api', '');
+                                window.location.href = `${baseUrl}/oauth2/authorization/google`;
+                            }}
                             className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200"
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24">
