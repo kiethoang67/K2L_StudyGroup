@@ -35,7 +35,7 @@ public class EmailService {
         SendSmtpEmail sendSmtpEmail = new SendSmtpEmail();
 
         SendSmtpEmailSender sender = new SendSmtpEmailSender();
-        sender.setEmail("no-reply@k2lstudygroup.online");
+        sender.setEmail("kiet.hoanganh.cit22@eiu.edu.vn");
         sender.setName("StudyGroup System");
         sendSmtpEmail.setSender(sender);
 
