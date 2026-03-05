@@ -10,14 +10,16 @@ public class ExceptionHandlers {
   @ExceptionHandler(ExceptionResponse.class)
   public ResponseEntity<ApiResponse<?>> handleApiException(ExceptionResponse ex) {
     return ResponseEntity
-            .status(ex.getErrorCode().getStatus())
-            .body(ApiResponse.error(ex.getMessage()));
+        .status(ex.getErrorCode().getStatus())
+        .body(ApiResponse.error(ex.getMessage()));
   }
+
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ApiResponse<?>> handleUnknownException(Exception ex) {
-    System.out.println(ex.getMessage());
+    System.err.println("[UNHANDLED EXCEPTION] " + ex.getClass().getName() + ": " + ex.getMessage());
+    ex.printStackTrace();
     return ResponseEntity
-            .internalServerError()
-            .body(ApiResponse.error("Internal Server Error"));
+        .internalServerError()
+        .body(ApiResponse.error("Internal Server Error: " + ex.getMessage()));
   }
 }
