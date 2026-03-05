@@ -31,9 +31,11 @@
 		<lombok.version>1.18.30</lombok.version>
 	</properties>
 	<dependencies>
+		<!-- Mailjet / Brevo API SDK -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
+			<groupId>com.sendinblue</groupId>
+			<artifactId>sib-api-v3-sdk</artifactId>
+			<version>7.0.0</version>
 		</dependency>
 		<!-- Source: https://mvnrepository.com/artifact/software.amazon.awssdk/s3 -->
 		<dependency>
