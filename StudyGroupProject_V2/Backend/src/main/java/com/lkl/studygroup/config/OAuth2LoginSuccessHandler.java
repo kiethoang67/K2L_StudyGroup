@@ -51,7 +51,7 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         }
         String token = userService.generateUserToken(user);
         response.sendRedirect(
-                "http://localhost:3000/oauth2/success?token=" + token
+                "https://www.k2lstudygroup.online/oauth2/success?token=" + token
         );
     }
 }
