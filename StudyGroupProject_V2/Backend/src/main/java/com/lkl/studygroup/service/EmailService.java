@@ -51,8 +51,8 @@ public class EmailService {
         try {
             CreateSmtpEmail result = apiInstance.sendTransacEmail(sendSmtpEmail);
             System.out.println("Email sent successfully via Brevo API: " + result.getMessageId());
-        } catch (Exception e) {
-            System.err.println("Exception when calling TransactionalEmailsApi#sendTransacEmail: " + e.getMessage());
+        } catch (Throwable e) {
+            System.err.println("[BREVO EMAIL FAILED] " + e.getClass().getName() + ": " + e.getMessage());
             e.printStackTrace();
         }
     }
