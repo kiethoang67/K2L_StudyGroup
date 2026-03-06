@@ -86,7 +86,7 @@ export default function DirectChatList({ onSelectChat, selectedChatId, onNewChat
                     chats.map((chat) => (
                         <div
                             key={chat.chatId}
-                            onClick={() => onSelectChat(chat.chatId, chat.receiverInfo.id)}
+                            onClick={() => onSelectChat(chat.chatId, chat.receiverInfo?.id || '')}
                             className={`p-4 border-b border-gray-100 cursor-pointer transition-colors ${selectedChatId === chat.chatId
                                 ? 'bg-teal-50 border-l-4 border-l-teal-500'
                                 : 'hover:bg-gray-50'
@@ -95,8 +95,8 @@ export default function DirectChatList({ onSelectChat, selectedChatId, onNewChat
                             <div className="flex items-center space-x-3">
                                 <div className="relative">
                                     <img
-                                        src={chat.receiverInfo.avatarUrl || `https://ui-avatars.com/api/?name=${chat.receiverInfo.firstName}+${chat.receiverInfo.lastName}&background=random`}
-                                        alt={chat.receiverInfo.firstName}
+                                        src={chat.receiverInfo?.avatarUrl || `https://ui-avatars.com/api/?name=${chat.receiverInfo?.firstName || 'User'}+${chat.receiverInfo?.lastName || ''}&background=random`}
+                                        alt={chat.receiverInfo?.firstName || 'User'}
                                         className="w-12 h-12 rounded-full object-cover"
                                     />
                                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
@@ -105,13 +105,13 @@ export default function DirectChatList({ onSelectChat, selectedChatId, onNewChat
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between">
                                         <p className="font-semibold text-gray-900 truncate">
-                                            {chat.receiverInfo.firstName} {chat.receiverInfo.lastName}
+                                            {chat.receiverInfo?.firstName || 'Unknown'} {chat.receiverInfo?.lastName || 'User'}
                                         </p>
                                         <span className="text-xs text-gray-500 ml-2">
                                             {formatTime(chat.lastMessageAt)}
                                         </span>
                                     </div>
-                                    <p className="text-sm text-gray-500 truncate">{chat.receiverInfo.email}</p>
+                                    <p className="text-sm text-gray-500 truncate">{chat.receiverInfo?.email || 'Unknown email'}</p>
                                 </div>
                             </div>
                         </div>

@@ -22,6 +22,11 @@ export default function NewDirectChatModal({ isOpen, onClose, onSuccess }: NewDi
             return;
         }
 
+        if (email.trim().toLowerCase() === user?.email?.toLowerCase()) {
+            toast.error('Cannot create a chat with yourself');
+            return;
+        }
+
         setIsLoading(true);
         try {
             const res = await chatAPI.createDirectChat(email);
